@@ -203,7 +203,7 @@ segAllnoteD4T = {};
 % Loop through the fields in noteD4Segments
 fieldNames = fieldnames(noteD4Segments);
 for i = 1:length(fieldNames)
-    occurrences = fieldnames(noteD4Segments.(fieldNames{i}));
+    occurrences = fieldnames(noteD4Segments.(fieldNames{i})); 
     
     % Loop through the occurrences within each field
     for j = 1:length(occurrences)
@@ -233,3 +233,29 @@ end
 % Now segAllnoteD4_transposed is a 133x883 array with padded segments
 % Save the segAllnoteC5 and segAllnoteD4 arrays into a MAT file
 save('storeSeg noteD4andC5.mat', 'segAllnoteC5', 'segAllnoteD4');
+
+% Plot first occurence of Note D4 in HardimanTheFiddler.wav file
+subplot(2,1,1)
+Plot_Segment_D4 = noteD4Segments.HardimanTheFiddler.Occurrence1.Segment; % store Segment struct in Segment variable
+% plot the occurence
+plot(Plot_Segment_D4)
+
+% Customize the plot with labels and titles as needed
+title('First Occurence of Note D4 in wavOrig/rec_other/HardimanTheFiddler.wav');
+xlabel('Sample Index'); % x axis
+ylabel('Amplitude'); % y axis 
+grid on; % for better visualization
+
+% Plot first occurence of Note C5 in HardimanTheFiddler.wav file
+subplot(2,1,2)
+Plot_Segment_C5 = noteC5Segments.HardimanTheFiddler.Occurrence1.Segment; % store Segment struct in Segment variable
+% plot the occurence
+plot(Plot_Segment_C5);
+
+% Customize the plot with labels and titles as needed
+title('First Occurence of Note C5 in wavOrig/rec_other/HardimanTheFiddler.wav'); 
+xlabel('Sample Index'); % x axis
+ylabel('Amplitude'); % y axis 
+grid on; % for better visualization
+
+% option b
