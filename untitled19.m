@@ -259,3 +259,23 @@ ylabel('Amplitude'); % y axis
 grid on; % for better visualization
 
 % option b
+% calculate the magnitude spectrum for segAll_NoteD4 and segAll_noteC5
+% using fft since it is faster and more efficient than dft
+
+DFT_segAllNoteD4 = 20 * log10(abs(fft(Plot_Segment_D4)));
+DFT_segAllNoteC5 = 20 * log10(abs(fft(Plot_Segment_C5)));
+
+figure;
+subplot(2,1,1)
+plot(DFT_segAllNoteD4)
+title('FFT D4');
+xlabel('Frequency Index');
+ylabel('Magnitude Spectrum (dB)');
+
+% Now C5 Plot
+subplot(2,1,2)
+plot(DFT_segAllNoteC5)
+title('FFT D5');
+xlabel('Frequency Index');
+ylabel('Magnitude Spectrum (dB)');
+
